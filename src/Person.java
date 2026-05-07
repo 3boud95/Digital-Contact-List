@@ -1,4 +1,4 @@
-public class Person {
+public class Person implements Comparable<Person>{
     private String PersonName;
     private String PhoneNumber;
 
@@ -21,5 +21,16 @@ public class Person {
 
     public void setPhoneNumber(String phoneNumber) {
         PhoneNumber = phoneNumber;
+    }
+
+    @Override
+    public int compareTo(Person other) {
+        int nameCompare = this.PersonName.compareTo(other.PersonName);
+
+        if (nameCompare != 0) {
+            return nameCompare;
+        }
+
+        return this.PhoneNumber.compareTo(other.PhoneNumber);
     }
 }
