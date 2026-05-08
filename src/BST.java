@@ -117,11 +117,36 @@ public class BST {
         return node;
     }
 
-    public void printAlphabetical(BSTNode node) {
+    public void printAlphabetical() {
+        printRecursive(this.root);
+    }
+
+    private void printRecursive(BSTNode node) {
         if (node != null) {
-            printAlphabetical(node.getLeft());
+            printRecursive(node.getLeft());
             System.out.println(node.getPerson());
-            printAlphabetical(node.getRight());
+            printRecursive(node.getRight());
+        }
+    }
+
+    public void UpdateExistingOne(String name, String number) {
+        BSTNode node = search(name);
+        if (node == null) {
+            System.out.println("Contact not found!");
+        }
+
+        node.getPerson().setPhoneNumber(number);
+
+        System.out.println("Number Edited Successfully...");
+    }
+
+    public void printStartingWith(BSTNode node, String prefix) {
+        if (node != null) {
+            printStartingWith(node.getLeft(), prefix);
+            if (node.getPerson().getPersonName().startsWith(prefix)) {
+                System.out.println(node.getPerson());
+            }
+            printStartingWith(node.getRight(), prefix);
         }
     }
 }
