@@ -38,6 +38,7 @@ public class BST {
             } else if (cmp > 0) {
                 current = current.getRight();
             } else {
+                System.out.println("Contact already in the books!");
                 return;
             }
         }
