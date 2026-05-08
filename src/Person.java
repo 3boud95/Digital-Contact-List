@@ -33,4 +33,9 @@ public class Person implements Comparable<Person>{
 
         return this.PhoneNumber.compareTo(other.PhoneNumber);
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + PersonName + ", Phone: " + PhoneNumber;
+    }
 }
